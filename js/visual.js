@@ -7,7 +7,7 @@ function setup() {
 }
   
 function draw(){
-    if (flag == 1){
+    if (flag === 1){
         //FONDO
         createCanvas(720, 400);
         background(0);
@@ -68,25 +68,41 @@ function draw(){
 
         j++;
         $("#modal-canvas").append($("#defaultCanvas0"));
-    } else {
-        if (flag == 2){
-            frameRate(9);
-            createCanvas(720, 400);
-            background(191);
-            fill(0);
-            rect(355,199,10,2);
-            fill(0);
-            rect(359,195,2,10);
+    }
 
-            drawCircles();
+    if (flag === 2){
+        frameRate(9);
+        createCanvas(720, 400);
+        background(191);
+        fill(0);
+        rect(355,199,10,2);
+        fill(0);
+        rect(359,195,2,10);
 
-            hidden = hidden - 1;
+        drawCircles();
 
-            if (hidden < 0){
-                hidden = 11;
-            }
-            $("#modal-canvas").append($("#defaultCanvas0"));
+        hidden = hidden - 1;
+
+        if (hidden < 0){
+            hidden = 11;
         }
+        $("#modal-canvas").append($("#defaultCanvas0"));
+    }
+
+    if (flag === 3){
+        createCanvas(720, 400);
+        var accumulatedX = -25;
+        var accumulatedY = -35;
+        while (accumulatedY < 400){
+            while (accumulatedX < 720){
+            fill(0);
+            rect(accumulatedX, accumulatedY, 50, 50);
+            accumulatedX = accumulatedX + 60;
+            }
+            accumulatedY = accumulatedY + 60;
+            accumulatedX = -25;
+        }
+        $("#modal-canvas").append($("#defaultCanvas0"));
     }
 }
   
