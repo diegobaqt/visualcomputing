@@ -243,7 +243,7 @@
             <div class="portfolio-wrap">
               <figure>
                   <img src="img/portfolio/app1.jpg" class="img-fluid" alt="">
-                  <a id="ducks" onclick="LoadDucks();" class="link-preview" title="Ver"><i class="ion ion-eye"></i></a>
+                  <a id="ducks" onclick="LoadModal(1);" class="link-preview" title="Ver"><i class="ion ion-eye"></i></a>
               </figure>
 
               <div class="portfolio-info">
@@ -285,7 +285,7 @@
             <div class="portfolio-wrap">
               <figure>
                 <img src="img/portfolio/card2.jpg" class="img-fluid" alt="">
-                <a href="img/portfolio/card2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
+                <a id="lilac" onclick="LoadModal(2);" class="link-preview" title="Ver"><i class="ion ion-eye"></i></a>
               </figure>
 
               <div class="portfolio-info">
@@ -442,13 +442,13 @@
       <div class="modal-dialog" role="document" style="min-width:770px;">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel" style="color:#5a6268">Ducks Effect</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <h5 class="modal-title" id="exampleModalLabel" style="color:#5a6268">Super Effect</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <div id="modal-ducks">
+            <div id="modal-canvas">
             </div>
           </div>
           <div class="modal-footer">
@@ -465,7 +465,9 @@
 
   <!-- JavaScript Libraries -->
   <script src="libraries/p5.js"></script>
-  <script src="js/patos.js"></script>
+  <script src="js/visual.js"></script>
+  <!-- <script src="js/patos.js"></script>
+  <script src="js/lilac.js"></script> -->
 
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/jquery/jquery-migrate.min.js"></script>
@@ -488,8 +490,10 @@
   <script src="js/main.js"></script>
 
   <script>
-      function LoadDucks(){
-        $("#modal-ducks").append($("#defaultCanvas0"));
+      var flag = 0;
+
+      function LoadModal(a){
+        flag = a;
         $('#exampleModal').modal('show'); 
       }
   </script>
