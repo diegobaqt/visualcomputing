@@ -4,6 +4,8 @@ var pi = 3.141592;
 var hiddenGrille = false;
 var accumulatedCar = 0;
 var direction = 0;
+var istep = 300;
+var step = 90;
 
 function setup() {
     
@@ -75,15 +77,15 @@ function draw(){
             $("#modal-canvas").append($("#defaultCanvas0"));
             break;
         case 2:
-            frameRate(12);
+            frameRate(8);
             createCanvas(720, 400);
             background(191);
+
+            drawCircles();
             fill(0);
             rect(355,199,10,2);
             fill(0);
             rect(359,195,2,10);
-
-            drawCircles();
 
             hidden = hidden - 1;
 
@@ -149,12 +151,40 @@ function draw(){
             }
             $("#modal-canvas").append($("#defaultCanvas0"));
             break;
+        case 5:
+            createCanvas(270,270);  
+            frameRate(15);
+
+            background (255,255,255);
+            stroke(0,0,0);
+            strokeWeight(1);
+
+            for (var i = 0; i <= 270; i = i + step)
+            {
+                line (0,i, 270,270-i);
+            }      
+            for (var i=0 ; i <= 270; i = i + step)
+            {
+                line (i, 0, 270 - i, 270);
+            }
+            stroke(255,0,0);
+            strokeWeight(3);
+        
+            line (0, 270/3, 270, 270/3);
+            line (0,2 * 270/3, 270, 2*270/3);
+            fill(0, 102, 153);
+            noStroke();    
+
+            $("#modal-canvas").append($("#defaultCanvas0"));
     }
 }
 
 mouseClicked = function() {
     if (flag === 4)
         hiddenGrille = !hiddenGrille;
+    if (flag === 5 && step > 20){
+        step = step - 5;
+    }
 };
 
 function drawCircles() {
@@ -169,6 +199,8 @@ function drawCircles() {
 }
 
 function pato(){
+
+
     rect(60,0,45,45);//CARA
     rect(104,30,17,15);//PICO
     rect(59,45,38,70);//CUERPO
@@ -179,4 +211,44 @@ function pato(){
     rect(42,56,18,17);//Espalda
     rect(55,115,15,40);//Pie |
     rect(69,147,15,8);//Pie _
+  }
+
+
+
+var ilusionOptica = function (s) {
+    var istep=300;
+    var step=istep;  
+  
+
+    draw=function()
+    {
+        createCanvas(720,270);  
+        frameRate(15);
+        istep = width/3;
+        step = istep;
+
+      background (255,255,255);
+      stroke(0,0,0);
+      strokeWeight(2);
+
+      for (var i = 0; i <= 270; i = i + step)
+      {
+         line (0,i,s.width,s.height-i);
+      }      
+      for (var i=0 ; i <= 720; i = i + step)
+      {
+         line (i, 0, 720 - i, height);
+      }
+      stroke(255,0,0);
+      strokeWeight(5);
+  
+      line (0,s.height/3,s.width, s.height/3);
+      line (0,2*s.height/3,s.width, 2*s.height/3);
+      fill(0, 102, 153);
+      noStroke();    
+    }
+    
+    mousePressed=function() {
+      if (step>20) {step--;}
+    }
   }
