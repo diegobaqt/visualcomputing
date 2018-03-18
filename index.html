@@ -267,16 +267,16 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
                 <img src="img/portfolio/app2.jpg" class="img-fluid" alt="">
-                <a href="img/portfolio/app2.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
+                 <a id="parallel" onclick="LoadModal(7);" class="link-preview" title="Ver"><i class="ion ion-eye"></i></a>
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Pendiente</a></h4>
-                <p>Psicológica</p>
+                <h4><a href="#">Parallel Lines</a></h4>
+                <p>Otra</p>
               </div>
             </div>
           </div>
@@ -309,19 +309,34 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.2s">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
                 <img src="img/portfolio/app3.jpg" class="img-fluid" alt="">
-                <a id="ebbinghaus" onclick="LoadModal(5);" class="link-preview" title="Ver"><i class="ion ion-eye"></i></a>
+                <a id="grid-black" onclick="LoadModal(5);" class="link-preview" title="Ver"><i class="ion ion-eye"></i></a>
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Parallel Lines</a></h4>
+                <h4><a href="#">Grid</a></h4>
+                <p>Psicológica</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/portfolio/Ebbinghaus.jpg" class="img-fluid" alt="">
+                <a id="ebbinghaus" onclick="LoadModal(6);" class="link-preview" title="Ver"><i class="ion ion-eye"></i></a>
+              </figure>
+              <div class="portfolio-info">
+                <h4><a href="#">Ebbinghaus Illusion</a></h4>
                 <p>Otra</p>
               </div>
             </div>
           </div>
+
+
         </div>
 
       </div>
@@ -439,7 +454,7 @@
 
     <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document" style="min-width:770px;">
+      <div class="modal-dialog" role="document" style="min-width:870px;">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel" style="color:#5a6268">Super Visual Effect</h5>
@@ -450,6 +465,12 @@
           <div class="modal-body">
             <div id="instructions-div">
                 <p style='color:#333'>Haga clic dentro del canvas para ocultar o mostrar las líneas negras del fondo</p>
+            </div>
+             <div id="instructions-div_6">
+                <p style='color:#333'>Haga clic para cambiar modo, Modos:<br>1.Movimiento elemento izquierdo, 2.Centro izquierdo pequeño, 3.Centro derecho pequeño</p>
+            </div>
+            <div id="instructions-div_5">
+                <p style='color:#333'>Mantenga oprimido el clic para ocultar el fondo<br>¿Puedes ver todos los círculos negros en el mismo instante?</p>
             </div>
             <div id="modal-canvas" style="text-align:center">
             </div>
@@ -494,11 +515,18 @@
 
   <script>
       var flag = 0;
-
       function LoadModal(effect){
         $("#instructions-div").hide();
+        $("#instructions-div_5").hide();
+        $("#instructions-div_6").hide();
         if(effect == 4){
           $("#instructions-div").show();
+        }
+        if(effect == 5){
+          $("#instructions-div_5").show();
+        }
+        if(effect == 6){
+          $("#instructions-div_6").show();
         }
         flag = effect;
         $('#exampleModal').modal('show'); 
